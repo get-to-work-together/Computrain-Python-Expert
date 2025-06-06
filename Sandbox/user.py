@@ -65,7 +65,7 @@ class User(MappedAsDataclass, Base):
 
 if __name__ == '__main__':
 
-    user1 = User('PeterA', 'peter@tip.nl', group='admin')
+    user1 = User('PeterB', 'peter@tip.nl', group='admin')
     print(user1)
 
     user1.set_password('Welkom01!')
@@ -88,8 +88,20 @@ if __name__ == '__main__':
     Base.metadata.create_all(engine)
 
     with Session(engine) as session:
-        session.add(user1)
-        session.commit()
+        existing_user = session.query(User).filter_by(e_mail=user1.e_mail).first()
+        if existing_user:
+            print(f'User with e-mail {user1.e_mail} already exists.')
+            existing_user.name = user1.name
+            existing_user.group = user1.group
+            existing_user.active = user1.active
+            existing_user.role = user1.role
+            existing_user.password_hash = user1.password_hash
+            existing_user.salt = user1.salt
+            session.commit()
+        else:
+            print(f'Adding new user with e-mail {user1.e_mail}.')
+            session.add(user1)
+            session.commit()
 
     with Session(engine) as session:
         # result = session.query(User).get(2)

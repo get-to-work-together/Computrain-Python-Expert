@@ -1,3 +1,5 @@
+from python_expert.models.user import User, store_user
+
 import customtkinter
 
 
@@ -33,7 +35,11 @@ class App(customtkinter.CTk):
         self.button.grid(row=4, column=0, padx=20, pady=20, sticky="ew", columnspan=2)
         
     def button_callback(self):
-        print("button pressed")
+        user = User(self.name.get(), self.e_mail.get(), self.groep.get())
+        user.set_password(self.password.get())
+        store_user(user)
+        print(user)
+
 
 app = App()
 app.mainloop()

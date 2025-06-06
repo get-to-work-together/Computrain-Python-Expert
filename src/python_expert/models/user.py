@@ -62,6 +62,13 @@ class User(MappedAsDataclass, Base):
     def check_password(self, password: str) -> bool:
         return self.password_hash == User.hash_password(password, self.salt)
 
+    def to_json(self):
+        return {
+            'name': self.name,
+            'e_mail': self.e_mail,
+            'group': self.group
+        }
+
 
 
 def store_user(user: User):
@@ -94,8 +101,6 @@ def get_users(name: str = None, e_mail: str = None, group: str = None):
 
     DATABASE_URL = 'sqlite:///data/sqlite.db'
     engine = create_engine(DATABASE_URL, echo=True)
-
-    Base.metadata.create_all(engine)
 
     with Session(engine) as session:
         records = session.query(User)

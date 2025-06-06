@@ -24,4 +24,13 @@ def users():
     data = get_users(name=name, e_mail=e_mail, group=group)
     return render_template('users.html', title='Users', data=data)
 
+@app.route("/api/v1/users")
+def api_users():
+    name = request.args.get('name') or None
+    e_mail = request.args.get('e_mail') or None
+    group = request.args.get('group') or None
+    data = get_users(name=name, e_mail=e_mail, group=group)
+    return [user.to_json() for user in data]
+
+
 app.run(debug=True)

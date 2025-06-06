@@ -1,0 +1,24 @@
+[project]
+name = "python-expert-project"
+version = "0.0.1"
+authors = [
+    {name = "Peter Anema", email = "email@peteranema.nl"},
+]
+description = "Python Expert Project"
+readme = "README.md"
+
+requires-python = ">3.10"
+
+dependencies = [
+    "requests",
+    "httpx",
+    "numpy",
+    "scipy",
+    "statsmodels",
+    "pandas",
+    "matplotlib",
+    "pytest",
+    "pytest-cov",
+    "customtkinter",
+    "sqlalchemy"
+]

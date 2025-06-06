@@ -1,0 +1,22 @@
+Metadata-Version: 2.4
+Name: python-expert-project
+Version: 0.0.1
+Summary: Python Expert Project
+Author-email: Peter Anema <email@peteranema.nl>
+Requires-Python: >3.10
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+Requires-Dist: httpx
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: statsmodels
+Requires-Dist: pandas
+Requires-Dist: matplotlib
+Requires-Dist: pytest
+Requires-Dist: pytest-cov
+Requires-Dist: customtkinter
+Requires-Dist: sqlalchemy
+
+# Python Exprert Demo Project
+
+### The way to go

@@ -1,0 +1,11 @@
+requests
+httpx
+numpy
+scipy
+statsmodels
+pandas
+matplotlib
+pytest
+pytest-cov
+customtkinter
+sqlalchemy

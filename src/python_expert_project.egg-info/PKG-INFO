@@ -16,6 +16,7 @@ Requires-Dist: pytest
 Requires-Dist: pytest-cov
 Requires-Dist: customtkinter
 Requires-Dist: sqlalchemy
+Requires-Dist: flask
 
 # Python Exprert Demo Project
 

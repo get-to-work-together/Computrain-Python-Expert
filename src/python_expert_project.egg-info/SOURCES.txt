@@ -1,6 +1,7 @@
 README.md
 pyproject.toml
 src/python_expert/main.py
+src/python_expert/gui/user_input.py
 src/python_expert/models/user.py
 src/python_expert_project.egg-info/PKG-INFO
 src/python_expert_project.egg-info/SOURCES.txt

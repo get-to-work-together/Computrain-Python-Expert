@@ -38,7 +38,7 @@ class App(customtkinter.CTk):
         user = User(self.name.get(), self.e_mail.get(), self.groep.get())
         user.set_password(self.password.get())
         store_user(user)
-        print(user)
+        # print(user)
 
 
 app = App()

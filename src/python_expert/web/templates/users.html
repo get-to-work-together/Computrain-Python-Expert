@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{{title}}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    {% if data %}
+    <div id="users">
+        <table>
+            {% for user in data %}
+            <tr>
+                <td>{{ user.name }}</td>
+                <td>{{ user.e_mail }}</td>
+                <td>{{ user.group }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    {% endif %}
+{% endblock %}

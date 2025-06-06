@@ -89,6 +89,23 @@ def store_user(user: User):
             session.commit()
 
 
+def get_users(name: str = None, e_mail: str = None, group: str = None):
+    """Get users from sqlite db"""
+
+    DATABASE_URL = 'sqlite:///data/sqlite.db'
+    engine = create_engine(DATABASE_URL, echo=True)
+
+    Base.metadata.create_all(engine)
+
+    with Session(engine) as session:
+        records = session.query(User)
+        if name:
+            records = records.filter_by(name=name)
+        if e_mail:
+            records = records.filter_by(e_mail=e_mail)
+        if group:
+            records = records.filter_by(group=group)
+        return records
 
 
 
@@ -112,3 +129,7 @@ if __name__ == '__main__':
 
 
     store_user(user1)
+
+    users = get_users(group='testers')
+    for user in users:
+        print(user)
